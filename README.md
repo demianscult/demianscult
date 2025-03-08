@@ -1,7 +1,7 @@
 <h2 align="left"></h2>
-[![Evel's GitHub stats](https://github-readme-stats.vercel.app/api?username=demianscult)](https://github.com/demianscult/github-readme-stats)
-###
+[![Evel's GitHub stats](https://github-readme-stats.vercel.app/api?username=demianscult)]
 
+##
 <img align="right" height="150" src="https://i.pinimg.com/736x/cc/ef/51/ccef514150c84e684f6f3643803028a1.jpg"  />
 
 ###
