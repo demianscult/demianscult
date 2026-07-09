@@ -46,7 +46,3 @@ root@evel:~$ echo "sempre em modo aprendizado"
 sempre em modo aprendizado
 root@evel:~$ _
 ```
-
-
-
-</div>
