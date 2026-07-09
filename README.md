@@ -1,6 +1,33 @@
 <div align="center">
-  <img src="./assets/card.svg" alt="Evel - profile card" width="720" />
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=600&lines=whoami+%3D%3E+Evel;aspiring+security+researcher;offense+%2B+defense+%2B+python;still+learning+%2C+still+hacking" alt="Typing SVG" />
+
 </div>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/status-hacking%20the%20planet%20(slowly)-A855F7?style=for-the-badge&labelColor=1a1a2e" />
+</p>
+
+<h3 align="center">🟣 EVEL SYSTEM 🟣</h3>
+<p align="center"><i>boot sequence: offense + defense + python — v0.1 (iniciante)</i></p>
+
+---
+
+### `> cat about.txt`
+
+```yaml
+nome:        Evel
+formação:    Ciência da Computação
+foco:        Cybersegurança
+caminho:     Offensive Security + Defensive Security
+mindset:     "quebrar pra entender, entender pra defender"
+status:      aprendendo todo santo dia
+```
+
+Tô no início da jornada em segurança da informação, curioso tanto pra **atacar**
+(pentest, exploração, red team) quanto pra **defender** (blue team, análise de
+tráfego, hardening). Curto Python pra automatizar bagulho chato e já dei os
+primeiros passos com **Nmap** e **Wireshark**.
 
 ---
 
@@ -46,3 +73,5 @@ root@evel:~$ echo "sempre em modo aprendizado"
 sempre em modo aprendizado
 root@evel:~$ _
 ```
+
+</div>
