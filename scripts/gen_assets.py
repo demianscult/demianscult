@@ -469,7 +469,8 @@ STACK = [
     ("build & automation", [("St", "Streamlit"), ("Fa", "FastAPI"), ("Pd", "Pydantic"), ("Pt", "pytest"), ("Re", "React"), ("Nd", "Node.js")]),
     ("data & ai", [("Ol", "Ollama"), ("Ch", "ChromaDB"), ("Pa", "pandas"), ("Pg", "PostgreSQL"), ("Mg", "MongoDB"), ("Rd", "Redis")]),
     ("systems & infra", [("Lx", "Linux"), ("Gt", "Git"), ("Gh", "GitHub"), ("Dk", "Docker"), ("Pm", "Podman")]),
-    ("security", [("Nm", "Nmap"), ("Ws", "Wireshark"), ("Bp", "Burp Suite")]),
+    ("security · offense", [("Nm", "Nmap"), ("Bp", "Burp Suite"), ("Ms", "Metasploit"), ("Sm", "sqlmap"), ("Gb", "Gobuster"), ("Hy", "Hydra")]),
+    ("security · analysis", [("Ws", "Wireshark"), ("Td", "tcpdump"), ("Gd", "Ghidra"), ("Jn", "John"), ("Hc", "Hashcat"), ("Au", "Autopsy")]),
 ]
 
 
@@ -557,6 +558,48 @@ def distros():
     write("linux.svg", svg)
 
 
+# --------------------------------------------------------------------------
+# training grounds — platforms and communities
+# --------------------------------------------------------------------------
+PLATFORMS = [
+    ("TryHackMe", "labs · rooms · ctfs"),
+    ("PortSwigger", "web security academy"),
+    ("HackerOne", "bug bounty · hacker101"),
+    ("OffSec", "offensive security training"),
+    ("EC-Council", "courses · certifications"),
+    ("WiCyS", "women in cybersecurity"),
+]
+
+
+def platforms():
+    W, cols, pad, gap = 1200, 3, 28, 14
+    cw = (W - 2 * pad - (cols - 1) * gap) / cols
+    ch = 92
+    rows = (len(PLATFORMS) + cols - 1) // cols
+    top = 46
+    H = top + rows * (ch + gap) - gap + 2 * pad
+    parts = []
+    for i, (name, role) in enumerate(PLATFORMS):
+        x = pad + (i % cols) * (cw + gap)
+        y = pad + top + (i // cols) * (ch + gap)
+        parts.append(f'''<g>
+<rect x="{x + 0.5:.1f}" y="{y + 0.5}" width="{cw - 1:.1f}" height="{ch - 1}" rx="6" fill="{PANEL}" stroke="{LINE}"/>
+<rect x="{x:.1f}" y="{y + 18}" width="3" height="{ch - 36}" fill="{RED}"/>
+<text x="{x + 24:.1f}" y="{y + 26}" font-size="10" fill="{DIM}" letter-spacing="2">{i + 1:02d}</text>
+<text x="{x + 24:.1f}" y="{y + 55}" font-size="26" class="serif" fill="{SILVER}">{e(name)}</text>
+<text x="{x + 24:.1f}" y="{y + 76}" font-size="11.5" fill="{MUTED}" letter-spacing="1">{e(role.upper())}</text>
+<path d="M{x + cw - 30:.1f} {y + 14}H{x + cw - 14:.1f}V{y + 30}" fill="none" stroke="{RED}" stroke-opacity="0.8"/>
+</g>''')
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Training grounds: {e(', '.join(n for n, _ in PLATFORMS))}">
+{STYLE}
+<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="10" fill="{BG}" stroke="{LINE}"/>
+<text x="{pad}" y="{pad + 22}" font-size="14" fill="{MUTED}"><tspan fill="{RED}">evel@lab</tspan>:~$ <tspan fill="{SILVER}">ls ~/training_grounds</tspan></text>
+{"".join(parts)}
+</svg>
+'''
+    write("platforms.svg", svg)
+
+
 if __name__ == "__main__":
     banner()
     for h in HEADERS:
@@ -564,6 +607,7 @@ if __name__ == "__main__":
     interests()
     stack()
     distros()
+    platforms()
     for c in CARDS:
         card(*c)
     now()

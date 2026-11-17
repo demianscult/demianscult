@@ -22,7 +22,7 @@
 <!-- ═══ 04 — tech stack ═══ -->
 <img src="./assets/headers/stack.svg" width="100%" alt="Tech stack" />
 
-<img src="./assets/stack.svg" width="100%" alt="Tech stack — languages: Python, Bash, SQL, JavaScript, TypeScript; build & automation: Streamlit, FastAPI, Pydantic, pytest, React, Node.js; data & ai: Ollama, ChromaDB, pandas, PostgreSQL, MongoDB, Redis; systems & infra: Linux, Git, GitHub, Docker, Podman; security: Nmap, Wireshark, Burp Suite" />
+<img src="./assets/stack.svg" width="100%" alt="Tech stack — languages: Python, Bash, SQL, JavaScript, TypeScript; build & automation: Streamlit, FastAPI, Pydantic, pytest, React, Node.js; data & ai: Ollama, ChromaDB, pandas, PostgreSQL, MongoDB, Redis; systems & infra: Linux, Git, GitHub, Docker, Podman; security offense: Nmap, Burp Suite, Metasploit, sqlmap, Gobuster, Hydra; security analysis: Wireshark, tcpdump, Ghidra, John the Ripper, Hashcat, Autopsy" />
 
 <br />
 
@@ -56,8 +56,8 @@
 | Grand Larceny Auto II | TryHackMe | API security · parameter tampering | [write-up ↗](https://github.com/demianscult/tryhackme-grand-larceny-auto/tree/main/grand-larceny-auto-ii) |
 <!-- new rooms go here: | room | platform | focus | [write-up ↗](link) | -->
 
-**training grounds** — TryHackMe · PortSwigger Web Security Academy
-<br />
+<img src="./assets/platforms.svg" width="100%" alt="Training grounds: TryHackMe, PortSwigger Web Security Academy, HackerOne, OffSec, EC-Council, WiCyS" />
+
 **toolbox** — [`gerador-senhas`](https://github.com/demianscult/gerador-senhas): password generator built on Python's `secrets` module
 
 <br />
