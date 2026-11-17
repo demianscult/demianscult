@@ -29,7 +29,7 @@
 <!-- ═══ 04b — linux ranking (edit DISTROS / RADAR in scripts/gen_assets.py) ═══ -->
 <img src="./assets/headers/linux.svg" width="100%" alt="Linux ranking" />
 
-<img src="./assets/linux.svg" width="100%" alt="Linux ranking: 1. Arch Linux (current favorite), 2. Parrot OS (on this laptop), 3. Bazzite, 4. Linux Mint. Radar: Kali Linux (know a bit), Ubuntu (next to test)" />
+<img src="./assets/linux.svg" width="100%" alt="Linux ranking: 1. Arch Linux (current favorite), 2. Parrot Security (in use), 3. Bazzite, 4. Linux Mint. Radar: Kali Linux (know a bit), Ubuntu (next to test)" />
 
 <br />
 

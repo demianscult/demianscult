@@ -509,7 +509,7 @@ def stack():
 # --------------------------------------------------------------------------
 DISTROS = [
     ("01", "Arch Linux", "current favorite", "rolling release · diy"),
-    ("02", "Parrot OS", "on this laptop", "debian-based · security"),
+    ("02", "Parrot Security", "in use", "debian-based · security"),
     ("03", "Bazzite", "used", "fedora atomic · gaming"),
     ("04", "Linux Mint", "used", "ubuntu-based · desktop"),
 ]
