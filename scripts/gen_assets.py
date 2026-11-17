@@ -274,12 +274,13 @@ def banner():
 HEADERS = [
     ("about", "01", "ABOUT", "who is behind the terminal"),
     ("interests", "02", "AREAS OF INTEREST", "four fronts"),
-    ("stack", "03", "TECH STACK", "tools by level of use"),
-    ("projects", "04", "FEATURED PROJECTS", "selected files"),
-    ("cyberlab", "05", "CYBERSECURITY LAB", "rooms · ctfs · write-ups"),
-    ("now", "06", "CURRENTLY EXPLORING", "live log"),
-    ("analytics", "07", "GITHUB ANALYTICS", "signal"),
-    ("connect", "08", "CONNECT", "open channel"),
+    ("stack", "03", "TECH STACK", "tools in the kit"),
+    ("linux", "04", "LINUX RANKING", "evaluating distros · for now"),
+    ("projects", "05", "FEATURED PROJECTS", "selected files"),
+    ("cyberlab", "06", "CYBERSECURITY LAB", "rooms · ctfs · write-ups"),
+    ("now", "07", "CURRENTLY EXPLORING", "live log"),
+    ("analytics", "08", "GITHUB ANALYTICS", "signal"),
+    ("connect", "09", "CONNECT", "open channel"),
 ]
 
 
@@ -460,11 +461,109 @@ def footer():
     write("footer.svg", svg)
 
 
+# --------------------------------------------------------------------------
+# tech stack — "periodic table" tiles, no third-party logos
+# --------------------------------------------------------------------------
+STACK = [
+    ("languages", [("Py", "Python"), ("Sh", "Bash"), ("Sq", "SQL"), ("Js", "JavaScript"), ("Ts", "TypeScript")]),
+    ("build & automation", [("St", "Streamlit"), ("Fa", "FastAPI"), ("Pd", "Pydantic"), ("Pt", "pytest"), ("Re", "React"), ("Nd", "Node.js")]),
+    ("data & ai", [("Ol", "Ollama"), ("Ch", "ChromaDB"), ("Pa", "pandas"), ("Pg", "PostgreSQL"), ("Mg", "MongoDB"), ("Rd", "Redis")]),
+    ("systems & infra", [("Lx", "Linux"), ("Gt", "Git"), ("Gh", "GitHub"), ("Dk", "Docker"), ("Pm", "Podman")]),
+    ("security", [("Nm", "Nmap"), ("Ws", "Wireshark"), ("Bp", "Burp Suite")]),
+]
+
+
+def stack():
+    W = 1200
+    tw, th, gap, rowgap, x0 = 140, 100, 12, 18, 262
+    pad = 28
+    H = len(STACK) * (th + rowgap) - rowgap + 2 * pad
+    parts, n = [], 0
+    for r, (cat, items) in enumerate(STACK):
+        y = r * (th + rowgap) + pad
+        parts.append(f'<text x="{pad}" y="{y + 34}" font-size="11" fill="{RED}" letter-spacing="3">// {r + 1:02d}</text>'
+                     f'<text x="{pad}" y="{y + 60}" font-size="20" class="serif" fill="{SILVER}">{e(cat)}</text>'
+                     f'<path d="M{pad} {y + 74}H{x0 - 30}" stroke="{LINE}"/>')
+        for i, (sym, name) in enumerate(items):
+            n += 1
+            x = x0 + i * (tw + gap)
+            parts.append(f'''<g>
+<rect x="{x + 0.5}" y="{y + 0.5}" width="{tw - 1}" height="{th - 1}" rx="6" fill="{PANEL}" stroke="{LINE}"/>
+<path d="M{x + tw - 22} {y + 8}H{x + tw - 8}V{y + 22}" fill="none" stroke="{RED}" stroke-opacity="0.8"/>
+<text x="{x + 12}" y="{y + 20}" font-size="10" fill="{DIM}">{n:02d}</text>
+<text x="{x + 14}" y="{y + 64}" font-size="38" class="serif" fill="{SILVER}">{sym}</text>
+<text x="{x + 14}" y="{y + 86}" font-size="11.5" fill="{MUTED}">{e(name)}</text>
+</g>''')
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Tech stack: {e('; '.join(c + ': ' + ', '.join(nm for _, nm in it) for c, it in STACK))}">
+{STYLE}
+<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="10" fill="{BG}" stroke="{LINE}"/>
+{"".join(parts)}
+</svg>
+'''
+    write("stack.svg", svg)
+
+
+# --------------------------------------------------------------------------
+# linux ranking — personal distro ranking, edit freely
+# --------------------------------------------------------------------------
+DISTROS = [
+    ("01", "Arch Linux", "current favorite", "rolling release · diy"),
+    ("02", "Parrot OS", "on this laptop", "debian-based · security"),
+    ("03", "Bazzite", "used", "fedora atomic · gaming"),
+    ("04", "Linux Mint", "used", "ubuntu-based · desktop"),
+]
+RADAR = [
+    ("Kali Linux", "know a bit"),
+    ("Ubuntu", "next to test"),
+]
+
+
+def distros():
+    W = 1200
+    rh, top, pad = 70, 58, 28
+    IW = W - 2 * pad
+    H = top + len(DISTROS) * rh + 96 + 2 * pad
+    rows = []
+    for i, (rank, name, tag, note) in enumerate(DISTROS):
+        y = top + i * rh
+        lead = i == 0
+        rows.append(f'''<g>
+<rect x="0.5" y="{y + 0.5}" width="{IW - 1}" height="{rh - 11}" rx="6" fill="{'#140a0e' if lead else PANEL}" stroke="{RED if lead else LINE}" stroke-opacity="{0.8 if lead else 1}"/>
+<text x="26" y="{y + 42}" font-size="34" class="serif" fill="{RED if lead else DIM}">{rank}</text>
+<path d="M92 {y + 14}V{y + rh - 25}" stroke="{LINE}"/>
+<text x="116" y="{y + 40}" font-size="26" class="serif" fill="{SILVER}">{e(name)}</text>
+<g transform="translate(430 {y + 18})"><rect width="{len(tag) * 8.4 + 22:.0f}" height="24" rx="3" fill="none" stroke="{RED}" stroke-opacity="{0.9 if lead else 0.5}"/>
+<text x="11" y="16.5" font-size="11.5" fill="{RED_SOFT if lead else MUTED}" letter-spacing="1">{e(tag.upper())}</text></g>
+<text x="{IW - 28}" y="{y + 36}" text-anchor="end" font-size="13" fill="{MUTED}">{e(note)}</text>
+</g>''')
+    ry = top + len(DISTROS) * rh + 18
+    radar = "".join(
+        f'<text x="{116 + i * 330}" y="{ry + 40}" font-size="20" class="serif" fill="{SILVER}">{e(n)}'
+        f'<tspan font-family="JBM,monospace" font-size="11.5" fill="{MUTED}" dx="14" letter-spacing="1">{e(t.upper())}</tspan></text>'
+        for i, (n, t) in enumerate(RADAR))
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Linux ranking: {e(', '.join(f'{r}. {n}' for r, n, _, _ in DISTROS))}. Also: {e(', '.join(f'{n} ({t})' for n, t in RADAR))}">
+{STYLE}
+<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="10" fill="{BG}" stroke="{LINE}"/>
+<g transform="translate({pad} {pad})">
+<text x="0" y="22" font-size="14" fill="{MUTED}"><tspan fill="{RED}">evel@lab</tspan>:~$ <tspan fill="{SILVER}">rank --distros --personal</tspan></text>
+<text x="{IW}" y="22" text-anchor="end" font-size="11" fill="{DIM}" letter-spacing="2">SUBJECT TO CHANGE AS I TEST MORE</text>
+{"".join(rows)}
+<path d="M0 {ry}H{IW}" stroke="{LINE}" stroke-dasharray="3 5"/>
+<text x="26" y="{ry + 38}" font-size="11" fill="{RED}" letter-spacing="3">RADAR</text>
+{radar}
+</g>
+</svg>
+'''
+    write("linux.svg", svg)
+
+
 if __name__ == "__main__":
     banner()
     for h in HEADERS:
         header(*h)
     interests()
+    stack()
+    distros()
     for c in CARDS:
         card(*c)
     now()

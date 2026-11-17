@@ -22,18 +22,14 @@
 <!-- ═══ 04 — tech stack ═══ -->
 <img src="./assets/headers/stack.svg" width="100%" alt="Tech stack" />
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=py,bash,js,ts,fastapi,react,nodejs,postgres,mongodb,redis,linux,arch,docker,git,github&theme=dark&perline=15" alt="python, bash, javascript, typescript, fastapi, react, node.js, postgresql, mongodb, redis, linux, arch linux, docker, git, github" />
-</p>
+<img src="./assets/stack.svg" width="100%" alt="Tech stack — languages: Python, Bash, SQL, JavaScript, TypeScript; build & automation: Streamlit, FastAPI, Pydantic, pytest, React, Node.js; data & ai: Ollama, ChromaDB, pandas, PostgreSQL, MongoDB, Redis; systems & infra: Linux, Git, GitHub, Docker, Podman; security: Nmap, Wireshark, Burp Suite" />
 
-<!-- adjust the columns as you go: move items left as they become everyday tools -->
-| | `using` | `familiar` | `studying` |
-|:--|:--|:--|:--|
-| **languages** | Python · Bash | JavaScript · TypeScript · SQL | |
-| **build & automation** | Streamlit · FastAPI · Pydantic · pytest | React · Node.js | |
-| **data & ai** | Ollama · ChromaDB · pandas | PostgreSQL | MongoDB · Redis |
-| **systems** | Linux · Arch · Git · GitHub | Docker · Podman | virtualization · networking |
-| **security** | | Nmap · Wireshark | Burp Suite |
+<br />
+
+<!-- ═══ 04b — linux ranking (edit DISTROS / RADAR in scripts/gen_assets.py) ═══ -->
+<img src="./assets/headers/linux.svg" width="100%" alt="Linux ranking" />
+
+<img src="./assets/linux.svg" width="100%" alt="Linux ranking: 1. Arch Linux (current favorite), 2. Parrot OS (on this laptop), 3. Bazzite, 4. Linux Mint. Radar: Kali Linux (know a bit), Ubuntu (next to test)" />
 
 <br />
 
