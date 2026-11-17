@@ -1,0 +1,28 @@
+name: update stats
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # daily, 03:17 in São Paulo
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build analytics.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/gen_stats.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add assets/analytics.svg
+          git diff --cached --quiet || (git commit -m "chore: refresh stats" && git push)

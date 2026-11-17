@@ -73,10 +73,9 @@
 <!-- ═══ 08 — github analytics ═══ -->
 <img src="./assets/headers/analytics.svg" width="100%" alt="GitHub analytics" />
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=demianscult&show_icons=true&hide_rank=true&bg_color=0c0b0f&title_color=e11d2e&text_color=d9d6de&icon_color=e11d2e&border_color=26222b&border_radius=8" height="165" alt="GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=demianscult&layout=compact&hide=java&langs_count=6&bg_color=0c0b0f&title_color=e11d2e&text_color=d9d6de&border_color=26222b&border_radius=8" height="165" alt="Top languages" />
-</p>
+<!-- built daily by .github/workflows/stats.yml (scripts/gen_stats.py) -->
+<img src="./assets/analytics.svg" width="100%" alt="GitHub stats and top languages" />
+
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=demianscult&background=0C0B0F&border=26222B&stroke=26222B&ring=E11D2E&fire=FF4D5E&currStreakNum=D9D6DE&sideNums=D9D6DE&currStreakLabel=E11D2E&sideLabels=8C8794&dates=4A4552&border_radius=8" alt="Contribution streak" />
 </p>
