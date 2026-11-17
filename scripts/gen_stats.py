@@ -15,7 +15,7 @@ import gen_assets as g  # noqa: E402
 LOGIN = "demianscult"
 HIDE_LANGS = {"Java"}            # languages to leave out of the chart
 SKIP_REPOS = {"demianscult"}     # the profile repo itself
-TOP_N = 6
+TOP_N = 5
 
 QUERY = """
 query($login: String!) {
