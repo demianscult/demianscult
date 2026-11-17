@@ -304,7 +304,7 @@ def header(slug, idx, title, sub):
 # areas of interest — 4 dossier panels
 # --------------------------------------------------------------------------
 PILLARS = [
-    ("01", "CYBERSECURITY", ["labs & CTFs · write-ups", "web & network security", "blue team · linux/windows sec", "OSINT & forensics"]),
+    ("01", "CYBERSECURITY", ["red team · blue team", "labs & CTFs · write-ups", "web & network security", "linux/windows sec · OSINT & forensics"]),
     ("02", "AUTOMATION & SCRIPTING", ["scripts for repetitive work", "personal utilities", "integrations between tools", "small apps with real use"]),
     ("03", "LINUX & HOMELAB", ["arch · mint · bazzite · parrot", "podman & docker", "virtualization", "networks & infrastructure"]),
     ("04", "TECHNOLOGY & EXPERIMENTS", ["local LLMs with ollama", "agents & RAG", "prototypes and tools", "whatever comes next"]),
